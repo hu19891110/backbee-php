@@ -144,6 +144,10 @@ class EntityManagerCreator
                 $config->setAutoGenerateProxyClasses($options['orm']['auto_generate_proxy_classes']);
             }
 
+            if (isset($options['orm']['repository_factory'])) {
+                $config->setRepositoryFactory(new $options['orm']['repository_factory']);
+            }
+
             if (isset($options['orm']['metadata_cache_driver']) && is_array($options['orm']['metadata_cache_driver'])) {
                 if (isset($options['orm']['metadata_cache_driver']['type'])) {
                     if (
